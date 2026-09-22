@@ -1,19 +1,47 @@
-# Climate Data Pipeline (1880–2025)
+# Global Temperature Anomaly Cleaning & Visualization
 
-![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
-![Pipeline Status](https://img.shields.io/badge/pipeline-passing-brightgreen)
-
-An end-to-end Python data engineering pipeline designed to ingest, sanitize, interpolate, and standardize corrupted historical climate time-series data spanning from January 1880 to December 2025.
+This project cleans a corrupted monthly global temperature anomaly dataset (1880–2025), normalizes it, and generates a dual-encoded chart. It also provides an API so users can upload their own CSV file and get cleaned results and a chart.
 
 ---
 
-## 📌 Architecture & Repository Structure
+## What This Project Does
 
-```text
-.
-├── clean.py               # Core ETL cleaning pipeline & plot generator
-├── global_temp_dirty_v2.csv # Raw input dataset with string corruption & missing fields
-├── cleaned_monthly.csv    # Sanitized and continuous monthly temperature anomaly dataset
-├── cleaning_log.txt       # Automated execution logs and data quality metrics
-├── chart.png              # Generated high-resolution anomaly trend plot
-└── README.md              # Project documentation
+1. **Cleans** raw temperature data:
+   - Parses many date formats (e.g., `188001`, `Feb-1880`, `1880/03`, `1880.04`)
+   - Fixes swapped date/value columns
+   - Removes duplicates
+   - Removes outliers with the IQR method
+   - Fills missing months with time interpolation
+
+2. **Normalizes** the data:
+   - Computes deviation `d` from the 1901–2000 mean
+   - Computes Z-score `z` across the full series
+
+3. **Visualizes** the data:
+   - Dual-encoded chart: vertical position = anomaly, color = deviation from baseline
+   - Saves `chart.pdf` and `chart.png`
+
+4. **API**: Users can upload their own CSV and get cleaned data + chart back.
+
+---
+
+## Files
+
+| File | Description |
+| :--- | :--- |
+| `clean.py` | Main cleaning + visualization script |
+| `global_temp_dirty_v2.csv` | Raw input dataset (simulated) |
+| `cleaned_monthly.csv` | Cleaned output (date, anomaly_c, z) |
+| `cleaning_log.txt` | Log of cleaning steps and statistics |
+| `chart.pdf`, `chart.png` | Dual-encoded visualization |
+| `report.tex`, `report.pdf` | IEEE-style report |
+
+---
+
+## Requirements
+
+- Python 3.10+
+- Install dependencies:
+
+```bash
+pip install pandas numpy matplotlib
