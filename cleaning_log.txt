@@ -1,0 +1,9 @@
+=== DATA CLEANING LOG ===
+Unparsed rows count: 2
+Deduplicated total records: 1687
+Q1: -0.3910, Q3: 0.4840, IQR: 0.8750
+Fences: [-1.7035, 1.7965]
+Outliers removed: 63
+Months imputed: 222
+1901-2000 Mean (mu_20): 0.000064
+Full Series Mean (mu): 0.046463, Std (sigma): 0.520367
