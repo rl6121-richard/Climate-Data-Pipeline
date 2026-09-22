@@ -34,7 +34,7 @@ This project cleans a corrupted monthly global temperature anomaly dataset (1880
 | `cleaned_monthly.csv` | Cleaned output (date, anomaly_c, z) |
 | `cleaning_log.txt` | Log of cleaning steps and statistics |
 | `chart.pdf`, `chart.png` | Dual-encoded visualization |
-| `report.tex`, `report.pdf` | IEEE-style report |
+
 
 ---
 
