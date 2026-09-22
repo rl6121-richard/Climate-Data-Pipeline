@@ -57,7 +57,7 @@ This pipeline automates the transformation of noisy, real-world meteorological s
 Clone the repository and install dependencies:
 
 Bash
-git clone [https://github.com/Richard Li/climate-data-pipeline.git](https://github.com/YOUR_GITHUB_USERNAME/climate-data-pipeline.git)
+git clone [https://github.com/rl6121-richard/climate-data-pipeline.git](https://github.com/rl6121-richard/climate-data-pipeline.git)
 cd climate-data-pipeline
 pip install -r requirements.txt
 Launch the pipeline via API server:
